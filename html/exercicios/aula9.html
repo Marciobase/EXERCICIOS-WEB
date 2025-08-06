@@ -1,0 +1,78 @@
+<h1>images - slide (só funciona stank)</h1>
+<div wm-slides >
+    <p><img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Imagem 1" width="513" height="342" title="Muro da Cidade"></p>
+    <p><img src="http://files.cod3r.com.br/curso-web/imagem2.gif   " alt="Imagem 2"  height="342" title="Intro cod3r"></p>
+    <p class="circular"><img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Imagem 3"  height="342" title="Rio de Janeiro"></p>
+    <p class="texto">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar"  height="50" title="Avatar" align="left">
+        "Avatar" tem múltiplos significados, mas geralmente refere-se a uma representação digital de um usuário, 
+        como em jogos ou redes sociais, ou a uma encarnação de uma divindade, especialmente no hinduísmo.
+        O termo também pode se referir ao filme de James Cameron, "Avatar", e suas sequências.
+    </p>
+    <p class="cidade"></p>
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo" title="Logo">
+        </picture>
+</p>
+</div>
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+    .texto {
+        width: 400px;
+    }
+    .texto img {
+        margin-right: 10px;
+    }
+    .cidade {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+<script>
+    function mover (elem, inicio, fim, passo, callback) {
+        const novoInicio = inicio - passo
+        if (novoInicio >= fim) {
+            elem.style.left = novoInicio + 'px'
+            setTimeout(() => mover(elem, novoInicio, fim, passo, callback), 7)
+        } else {
+            callback()
+        }
+    }
+    // TESTANDO COM 1 ELEMENTO
+    // const p = document.querySelector('[wm-slides] > p')
+    // p.style.display = 'block'
+    // mover(p, 1500, -520, 5, () => {console.log('Acabou!')})
+    function slider() {
+        const elementos = document.querySelectorAll('[wm-slides] > p')
+        const slides = Array.from(elementos)
+        exibirSlides(slides, slides[0])
+    }
+    function exibirSlides(slides, slide) {
+        slide.style.display = 'block'
+        const inicio = innerWidth
+        const fim = -slide.clientWidth
+        slide.style.left = `${inicio}px` 
+        mover(slide, inicio, fim, 5, () => {
+            slide.style.display = 'none'
+            exibirSlides(slides, getPromximoSlide(slides, slide))
+         })
+    }
+    function getPromximoSlide(lista, atual) {
+        const i = lista.indexOf(atual) + 1
+        return i < lista.length ? lista[i] : lista[0]
+    }
+    slider()
+</script>

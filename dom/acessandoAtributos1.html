@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a id="link-cod3r" href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img id="logo-estreita" src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const image = document.querySelector('#logo-estreita') //acessando imagem pelo id
+        console.log(`Fonte da imagem com getAttribute: ${image.getAttribute('src')}`)
+        console.log(`Fonte da imagem com src: ${image.src}`)
+        console.log(`Fonte da imagem com ['src']: ${image['src']}`)
+        console.log(`Alt: ${image.alt}`)
+        console.log('Elemento img.....')
+        console.log(`nodeType: ${image.nodeType}`)
+        console.log(`nodeName: ${image.nodeName}`)
+        console.log('Atributo src.....')
+        const src = image.getAttributeNode('src')
+        console.log(`Tipo nodeType: ${src.nodeType}`)
+        console.log(`Nome nodeName: ${src.nodeName}`)
+        console.log(`Valor nodeValue: ${src.nodeValue}`)
+
+        
+        console.log('Elemento a.....')
+        const link = document.querySelector('#link-cod3r') //acessando href pelo id
+        console.log(`href : ${link.href}`)
+        console.log(`href : ${link.href}`)
+        console.log(`Tipo do Elemento filho : ${link.firstChild.nodeType}`)
+        console.log(`Valor do Elemento filho : ${link.firstChild.nodeValue}`)
+        link.firstChild.nodeValue = 'Novo Cod3r'
+        
+    </script>
+</body>
+
+</html>

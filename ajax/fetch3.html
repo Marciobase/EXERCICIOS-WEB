@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #03 - Lista Proprietários</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="filiais" method="post">
+        <input type="text" name="nome_da_entidade" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button>Salvar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault()
+            const form = e.target
+            const data = new FormData(form)
+            const resultado = document.getElementById('resultado')
+            data.append('Teste', true)
+            const optinos = {
+                method: form.method,
+                body: new URLSearchParams(data)
+            }
+            // ---> tratando o formulário só com fetch API (cuidando do erro dentro da promise, o erro fica mais detalhado)
+            fetch(form.action, optinos)
+                .then(resp => {
+                    console.log(resp)
+                    if (!resp.ok) {
+                        throw new Error(`${url} (${resp.status}-${resp.statusText})`);
+                    }
+                    return resp.json()
+                })
+                .then(json => {
+                    resultado.innerHTML = JSON.stringify(json)
+                })
+                .catch(error => {
+                    resultado.innerHTML = `Atenção! Erro não calculado (${error}). Nossos técnicos já estão avaliando.`
+                })
+            // ---> tratando formulário com async/await (cuidando o erro fora da promise com try, mais simples mas o tipo de erro não fica claro)
+            // try {
+            //     const resp = await fetch(form.action, optinos)
+            //     const json = await resp.json()
+            //     resultado.innerHTML = JSON.stringify(json)
+            // } catch (e) {
+            //     resultado.innerHTML = `Atenção! Erro não calculado (${e}). Nossos técnicos já estão avaliando.`
+            // }
+        }
+    </script>
+</body>

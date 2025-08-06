@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Axios #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/axios.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+
+    <script>
+        const url = 'dados/estados.json'
+        axios(url)
+            .then(resp => {
+                if (resp > 200) {
+                    throw new Error(`${url} (${resp.status}-${resp.statusText})`);
+                }
+                return resp
+            })
+            .then(resp => {
+                const itens = resp.data.reduce(
+                    (html, estado) => html + `<li>${estado.id} - ${estado.nome} (${estado.sigla})</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })
+            .catch(error => {
+                document.body.insertAdjacentHTML('beforeend', `<ul><li>Atenção! Erro não calculado (${error}). Nossos técnicos já estão avaliando.</li></ul>`)
+            })
+    </script>
+</body>

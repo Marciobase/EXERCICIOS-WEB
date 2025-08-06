@@ -1,0 +1,57 @@
+<h1>Tabelas</h1>
+
+<table>
+    <caption>Tabela</caption>
+    <thead>
+        <tr>
+        <th>Produto</th>
+        <th>Marca</th>
+        <th>Valor</th>
+        <th>Quantidade</th>
+        <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Telefone Celuar</td>
+            <td>Motorola</td>
+            <td>1.000,00</td>
+            <td>10</td>
+            <td>10.000,00</td>
+        </tr>
+        <tr>
+            <td>Caneta Esferográfica</td>
+            <td>BIC</td>
+            <td>10,00</td>
+            <td>10</td>
+            <td>100,00</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4">Total</td>
+            <td>10.100,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+    }
+    thead tr {
+        border-bottom: solid 3px #444;
+    }
+    tbody tr:hover {
+        background-color: #dedede;
+        /* font-style: italic; */
+    }
+    tfoot tr:hover {
+        background-color: #444;
+        color: #fff;
+        font-weight: bold;
+    }
+</style>

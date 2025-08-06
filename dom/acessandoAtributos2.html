@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritorio' data-urgencia="5" data-estoque="sim">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritorio"]')
+        console.log('Elemento ul...')
+        console.log(`childNodes: ${lista.childNodes}`)
+        console.log(`id: ${lista.id}`)
+        console.log(`Valor do Attrib - getAttribute: ${lista.getAttribute('destino')}`)
+        console.log(`O Attrib existe - hasAttribute: ${lista.hasAttribute('destino')}`)
+        lista.setAttribute('destino', 'escola') // altera o valor do atributo, quando não existir ele é criado
+        lista.setAttribute('status', 'ativo')
+        console.log(`Valor do Attrib - getAttribute: ${lista.getAttribute('destino')}`)
+        console.log(`Valor do Attrib - getAttribute: ${lista.getAttribute('status')}`)
+        //lista.removeAttribute('status') remove
+        console.log(`O Attrib existe - hasAttribute: ${lista.hasAttribute('status')}`)
+        console.log(`Urgência: ${lista.dataset.urgencia}`)
+        console.log(`Estoque: ${lista.dataset.estoque}`)
+        console.log(`Status: ${lista.getAttribute('status')}`) //funcionou ??
+        console.log(`Destino: ${lista.getAttribute('destino')}`) //funcionou ??
+    </script>
+</body>
+
+</html>

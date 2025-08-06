@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Estados</h1>
+    <script>
+        const url = 'dados/estados.json'
+        fetch(url)
+            .then(resp => {
+                if (!resp.ok) {
+                    throw new Error(`${url} (${resp.status}-${resp.statusText})`);
+                }
+                return resp.json()
+            })
+            .then(estados => {
+                const itens = estados.reduce(
+                    (html, estado) => html + `<li>${estado.id} - ${estado.nome} (${estado.sigla})</li>`, ''
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`)
+            })
+            .catch(error => {
+                document.body.insertAdjacentHTML('beforeend', `<ul><li>${error}</li></ul>`)
+            })
+    </script>
+</body>

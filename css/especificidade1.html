@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Especificidade CSS</title>
+    <style>
+        /* 
+        documentação em-> https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity
+        
+        Ordem de importância:
+
+        1. seletor !important  (exceção da regra, não recomendável)
+        2. seletores mais específicos
+        3. Ordem de execução (no caso de empate)
+        */
+        p {
+            background-color: #aaa;
+        }
+        /* o seletor de classe é mais "específico" que a própria tag (independente da ordem de processamento) */
+        .observacao {
+            background-color: red!important; /*esse important não será aplicado por causa do backgound logo abaixo*/
+            color: azure;
+            border: dashed 5px;
+            padding: 20px!important; /*esse important será aplicado apesar do padding logo abaixo*/
+            font-size: 40px;
+        }
+        /* o seletor de classe associado à tag é mais "específico" que a própria tag ou classe (independente da ordem de processamento) */
+        p.observacao {
+            background:  linear-gradient(to right, red, yellow);
+            padding: 2px;
+            color: #ffff;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <p class='observacao'>Olha essa observação!!!!</p>
+</body>
+
+</html>

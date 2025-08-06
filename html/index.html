@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>EXERCÍCIOS</title>
+    <style>
+        #conteudo {
+            padding: 30px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Exercícios html</h1> 
+    </header>
+    <nav>
+        <a href wm-nav="exercicios/texto1.html">Teste</a> |
+        <a href wm-nav="exercicios/aula1.html">Aula 1 (tags de texto)</a> |
+        <a href wm-nav="exercicios/aula2.html">Aula 2 (tags de texto)</a> |
+        <a href wm-nav="exercicios/aula3.html">Aula 3 (listas)</a> |
+        <a href wm-nav="exercicios/aula4.html">Aula 4 (listas aninhadas)</a> |
+        <a href wm-nav="exercicios/aula5.html">Aula 5 (links_1)</a> |
+        <a href wm-nav="exercicios/aula6.html">Aula 6 (links_2)</a> |
+        <a href wm-nav="exercicios/aula7.html">Aula 7 (tabelas)</a> |
+        <a href wm-nav="exercicios/forms/aula8.html">Aula 8 (forms)</a> |
+        <a href wm-nav="exercicios/aula9.html">Aula 9 (images + slide)</a> |
+        <a href wm-nav="exercicios/aula10.html">Aula 10 (vídeo - cotroles java)</a> |
+        <a href wm-nav="exercicios/aula11.html">Aula 11 (tags não visuais)</a> |
+    </nav>
+    <section id="conteudo"></section>
+    <footer id="rodape">Curso HTML</footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo')
+            link.onclick = (e) => {
+                e.preventDefault()
+                // console.log(conteudo)
+                fetch(link.getAttribute('wm-nav'))
+                    .then(resp => resp.text())
+                    .then(html => conteudo.innerHTML = html)
+            }
+        })
+    </script>
+</body>
+</html>

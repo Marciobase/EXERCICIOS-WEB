@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anatomia CSS</title>
+    <style>
+        .seletor {
+            color: #fff;
+            font-size: 50px;
+            text-align: center;
+            /*parâmetros com multiplos valores*/
+            /*shorthand property - propriedades de acesso mais rápido*/
+            /*são propriedades CSS que permitem definir os valores de várias outras propriedades CSS simultaneamente.
+            Usando uma propriedade abreviada, você pode escrever folhas de estilo mais concisas (e muitas vezes mais legíveis),
+            economizando tempo e energia*/
+            border: solid 3px navy;
+            font-family: Helvetica, sans-serif;
+            /*usando funções*/
+            width: calc(50% - 40px);
+            background-color: rgb(34, 250, 235);
+        }
+        /*estilo aplicado a uma pseudo-classe (ex. hover - ao passar o ponteiro do mouse)*/
+        .seletor:hover {
+            color: #444;
+            background-color: #fff;
+        }
+        /*estilo aplicado a um pseudo-elemento (ex. hover - ao passar o ponteiro do mouse)*/
+        .seletor::first-letter {
+            color: #444;
+        }
+        /*
+        Nomeclaturas?
+
+        O termo "dash case" refere-se a uma convenção de nomenclatura onde palavras compostas são separadas por hifens (-) e escritas em letras minúsculas.
+        Também é conhecido como kebab-case, spinal-case, ou lisp-case. Essa convenção é frequentemente utilizada em URLs, nomes de arquivos e em algumas linguagens de programação, como CSS. 
+        Exemplo:
+        "nome de usuário" em "dash case" seria escrito como "nome-de-usuario". 
+        Outras convenções de nomenclatura:
+        Camel Case:
+        Palavras compostas são escritas juntas, com a primeira letra da segunda palavra e subsequentes palavras em maiúscula (ex: "nomeDeUsuario"). 
+        Pascal Case:
+        Semelhante ao camel case, mas a primeira letra de todas as palavras é maiúscula (ex: "NomeDeUsuario"). 
+        Snake Case:
+        Palavras compostas são separadas por underlines (_) (ex: "nome_de_usuario")
+        */
+    </style>
+</head>
+
+<body>
+    <div class="seletor">Conteúdo</div>
+</body>
+
+</html>

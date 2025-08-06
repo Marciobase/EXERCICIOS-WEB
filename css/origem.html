@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Origem CSS: Externo, Interno e Inline</title>
+    <style>
+        body {
+            background-color: #7fffd4;
+        }
+    </style>
+    <!--o estilo é aplicado na sequência, sempre o ultimo (body acima não será aplicado por estar tb dentro do css/externo.css "mais recomendado")-->
+    <link rel="stylesheet" href="css/externo.css">
+</head>
+
+<body style="background-color: coral;"> <!--o estilo é aplicado na sequência, sempre o ultimo (body css/externo.css não será aplicado)-->
+    <h1>E agora?</h1>
+</body>
+
+</html>

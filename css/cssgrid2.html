@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #02</title>
+    <style>
+        html,
+        body {
+            margin: 1px;
+            height: calc(100% - 2px);
+            background-color: lightgray;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            border: solid 1px dodgerblue;
+            background: #fff;
+        }
+
+        body {
+            /* grid - sempre rolar no body separado */
+            display: grid;
+            grid-template-columns: [ini] 1fr [meio-1] 1fr [meio-2] 1fr [fim];
+            grid-template-rows: repeat(4 1fr);
+            /* column-gap: 5px;
+            row-gap: 5px; */
+            gap: 5px;
+
+        }
+
+        .d1 {
+            /* grid-column-start: meio-2;
+            grid-column-end: fim;
+            grid-column: meio-1 / fim;
+            grid-row: 1 / span 2; */
+            grid-area: 1 / meio-1 / span 4 / fim;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+        .fundoRed {
+            background-color: rgb(218, 213, 214);
+        
+        }
+        .negrito {
+            font-weight: bold;
+        }       
+        #textoPrincipal {
+            font-size: 40px;
+            font-weight: bold;
+        }

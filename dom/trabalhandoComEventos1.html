@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div id="linkGoogle">
+        <!-- 
+            não acho elegante usar o onclick="navegarEm5S(event) direto no html, 
+            melhor adicionar atibperson (ex.delay5s) e capturar o evento por dentro da script"
+        -->
+        <a msi-delay5s href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        navegarEm5S = (e) => {
+            div = document.querySelector('#linkGoogle')
+            div.classList.add('destaque')
+            e.preventDefault()
+            console.log('Em 5 segundos...')
+            setTimeout(() => {
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+            // div.classList.remove('destaque')
+        }
+        // capturando o envento por dentro da script
+        const a = document.querySelector('[msi-delay5s]')
+        a.onclick = navegarEm5S
+    </script>
+</body>
