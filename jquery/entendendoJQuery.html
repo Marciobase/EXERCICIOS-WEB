@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Entendendo jQuery</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Entendendo jQuery</h1>
+    <div>1</div>
+    <div>2</div>
+
+    <script>
+        $('div').hide(500).show(5000).fadeOut(5000).fadeIn(5000)
+        console.log($.inArray(4, [1, 2, 3, 4]))
+        console.log($.isEmptyObject({ nome: 'marcio' }))
+
+        // função extendida no jQuery (NÃO ACEITA ARROW FUNCTION)
+        $.fn.fundoVerde = function () {
+            this.css('background-color', 'green')
+            return this
+        }
+
+        const fundoVermelho = () => {
+            this.css('backgound-color', 'red')
+        }
+
+        $('body').fundoVerde().hide(1000).show(5000)
+    </script>
+</body>
