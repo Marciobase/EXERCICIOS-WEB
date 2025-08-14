@@ -22,7 +22,41 @@
 <body class='conteudo exercicio'>
     <h1>Manipulando Atributos</h1>
     <div wm-relogio='1000'></div>
+    <div wm-relogio='5000'></div>
     <script>
-        // ...
+        $(() => {
+            function relogio(elemento) {
+                const horaCerta = $('<p>')
+                const botaoDiminuir = $('<button>').html('-')
+                const botaoAumentar = $('<button>').html('+')
+                const $elemento = $(elemento)
+                $elemento.append(horaCerta, botaoDiminuir, botaoAumentar)
+
+                const getIntervaloAtual = () => parseInt($elemento.attr('wm-relogio'))  //$elemento.attr('wm-relogio') - lê attibuto
+                let temporizador = null
+                const iniciar = () => {
+                    if (temporizador) clearInterval(temporizador)
+                    temporizador = setInterval(() => { horaCerta.html(new Date().toLocaleString('pt-BR')) }, getIntervaloAtual())
+                }
+                const alterarIntervalo = delta => {
+                    const novo = Math.max(getIntervaloAtual() + delta, 1000)
+                    $elemento.attr('wm-relogio', novo) // muda o valor ou adiciona um atributo
+                    iniciar()
+                }
+                botaoAumentar.click(e => {
+                    alterarIntervalo(1000)
+                    $('[wm-relogio]').attr({ vai: 0 , country: 'br' }) //teste adicinado um ou mais atributos
+                })
+                botaoDiminuir.click(e => {
+                    alterarIntervalo(-1000)
+                    console.log($elemento.attr('teste'))
+                    if (!$elemento.attr('teste')) { $('[wm-relogio]').removeAttr('vai').removeAttr('teste').removeAttr('country') } //teste removendo atributos
+                })
+                iniciar()
+            }
+            $('[wm-relogio]').each((i, e) => new relogio(e))
+        })
+
+
     </script>
 </body>

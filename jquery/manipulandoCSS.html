@@ -14,7 +14,22 @@
     <div id='div2'>2</div>
     <div id='div3'>3</div>
     <div id='resultado'></div>
+    
     <script>
-        // ...
+        const fonteDv1 = $('#div1').css('font-family')
+        $('#resultado').append(`A fonte é ${fonteDv1}`)
+        $('#resultado').css('font-size', '3em') //alterando 1 atributo css
+        $('#resultado').css({'font-size': '3em', 'color': 'yellow'})
+        $('#div3').css('font-size', () => {
+            return `${4 * 4}em`
+        }) //podemos manipular o css através de uma função
+
+        $('#div2').addClass('destaque')
+        const temClasse = $('#div2').hasClass('destaque')
+        console.log(temClasse)
+        console.log($('#resultado').css('font-size'))
+
+        $('#div2').removeClass('destaque') //podemos usar tb toggleClass tanto para inserir/remover
+
     </script>
 </body>
