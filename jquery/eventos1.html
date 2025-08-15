@@ -15,11 +15,49 @@
 
 <body class='conteudo exercicio'>
     <h1>Eventos #01</h1>
-    <div id='posicao'></div>
+    <div id='posicao'>posição</div>
     <div id='cliques'>Cliques: 0</div>
-    <input type="text" placeholder="Cor de Background">
-
+    <input id='cor' type="text" placeholder="Cor de Background">
+    <input id='email' type="text" placeholder="E-mail">
+    <input id='validar' type="button" value="Validar">
+    <div id='mensagens'></div>
     <script>
-        // ...
+        //controlando movimentos do mouse
+        const posicaoMouse = (e) => $('#posicao').html(`X -> ${e.clientX} / Y -> ${e.clientY}`)
+        posicaoMouse
+        $('body').on('mousemove', posicaoMouse) //.on captura eventos
+        $('#posicao').mouseover(e => $('body').off('mousemove', posicaoMouse)) //.mouseover - quando o mouse passar na div/ .off - desativa a captura
+        $('#posicao').mouseleave(e => $('body').on('mousemove', posicaoMouse)) //.mouseleave - quando o mouse sair da div / .on - ativa a captura
+
+        //controlando cliques do mouse
+        let qtdCliques = 0
+        $('body').click(e => $('#cliques').html(`Cliques: ${++qtdCliques}`))  //.click - captura clique do mouse
+        $('#cliques').mouseover(e => {
+            qtdCliques = 0
+            $('#cliques').html(`Cliques: ${qtdCliques}`)
+        })
+
+        //captura do teclado 
+        // .keyup - pega toda a string atualizada 
+        // .keydown - descarta o ultimo caractere digitado
+        // .keypress - descarta o penltimo caractere digitado
+        const backGroundColor = $('body').css('background-color')
+        $('#cor').keyup(function (e) {
+            const valorDigitado = $(this).val()  // ATENÇÃO! this não pode ser usado numa arrow function pos se refere ao objeto anterior a função
+            if (valorDigitado.match(/#[\da-fA-F]{3,6}/)) $('body').css('background-color', valorDigitado)
+            else $('body').css('background-color', backGroundColor)
+        })
+
+        //expressão regular para validar e-mail
+        const validarEmail = (email) => {
+            const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/  //expressão
+            return regex.test(email)
+        }
+        $('#validar').click(function (e) {
+            const valorDigitado = $('#email').val()
+            if (!validarEmail(valorDigitado)) $('#mensagens').html(`Endereço ${valorDigitado} inválido`)
+            else $('#mensagens').html(`Endereço ${valorDigitado} válido `)
+        })
+
     </script>
 </body>
