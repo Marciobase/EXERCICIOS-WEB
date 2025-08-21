@@ -21,11 +21,33 @@
 <body class='conteudo exercicio'>
     <h1>Eventos #03</h1>
     <div id='div1'>1</div>
-    <div id='div2'>1</div>
+    <div id='div2'>2</div>
     <input id='input1' type='text' placeholder='Digite Algo!'>
     <span id='resultado'></span>
 
     <script>
-        // ...
+        const exibirDadosEvento = e => {
+            $('#resultado').empty()
+            const div1 = $('<div>')
+            const div2 = $('<div>')
+            $('#resultado').append(div1, div2)
+            div1.append(`Elemento: ${e.target.id}`)
+            const rt = e.relatedTarget ? e.relatedTarget.tagName : 'Nenhum'
+            div1.append(`<br>Related: ${rt}`)
+            div1.append(`<br>Evento: ${e.type}`)
+            div1.append(`<br>Ação: ${e.which}`)
+            div1.append(`<br>MetaKey: ${e.metaKey}`)
+
+            div2.append(`PageX: ${e.pageX}`)
+            div2.append(`<br>PageY: ${e.pageY}`)
+            div2.append(`<br>ClientX: ${e.clientX}`)
+            div2.append(`<br>ClientY: ${e.clientY}`)
+            div2.append(`<br>Data: ${e.data.valor}`) 
+            
+
+        }
+
+        $('#div1, #div2').on('mouseenter mouseleave', {obs: 'Teste', valor: 2},  exibirDadosEvento)
+        $('#input1').keyup(exibirDadosEvento)
     </script>
 </body>

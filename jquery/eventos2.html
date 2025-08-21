@@ -18,9 +18,28 @@
     <div id='div1'>1</div>
     <div id="resultado1">?</div>
     <br>
-    <input type="text" placeholder="Digite e Selecione">
+    <input id="selecao" type="text" placeholder="Digite e Selecione">
     <div id="resultado2">?</div>
     <script>
-        // ...
+        const alternaDestaque = () => $('#div1').toggleClass('destaque')
+        $('#div1').hover(alternaDestaque, alternaDestaque)  //.hover(quandoentrar, quandosair) se não passada a ação de saída, repete a de entrada
+        //.on ('mouseenter, mouseleave', alterarDestaque) tb pode ser usado
+        $('#div1').one('mouseenter', e => alert('ATENÇÃO!'))
+        $('#div1').dblclick(e => $('#div1').fadeOut(500).fadeIn(500))
+
+        l = $(window).width()
+        a = $(window).height()
+        $('#resultado1').html(`Altura: ${l}, Largura: ${a}`)
+        $(window).resize(e => {
+            l = $(window).width()
+            a = $(window).height()
+            $('#resultado1').html(`Altura: ${l}, Largura: ${a}`)
+        })
+
+        $('#selecao').select(e => {
+            const begin = e.target.selectionStart
+            const end = e.target.selectionEnd
+            $('#resultado2').html(e.target.value.substring(begin, end))
+        })
     </script>
 </body>

@@ -19,10 +19,16 @@
 
 <body class='conteudo exercicio'>
     <h1>Animação #01</h1>
-    <button>Iniciar</button>
+    <button id="botao">Iniciar</button>
     <div id='animar'>Animar!</div>
 
     <script>        
-        // ...
+        $('#botao').click(e => {
+            const tempoAnimacao = 450
+            // $('#animar').hide(tempoAnimacao).show(tempoAnimacao) //.toggle tem a mesma ação do .hide/.show
+            // $('#animar').fadeOut(tempoAnimacao).fadeIn(tempoAnimacao) //.fadeToggle tem a mesma ação do .fadeOut/.fadeIN
+            $('#animar').slideUp(tempoAnimacao-300).slideDown(tempoAnimacao-300) //.slideToggle tem a mesma ação do .slideUp/.slideDown
+
+        })
     </script>
 </body>
