@@ -1,7 +1,27 @@
-<!-- Título (jumbotron) -->
-<!-- Breadcrumb -->
+<div class="jumbotron p-4 my-1">
+    <h1 class="display-4">Fundamentos</h1>
+    <p class="lead m-1">Alguns recursos importantes do Bootstrap.</p>
+</div>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#paginas/bemVindo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fundamentos</li>
+    </ol>
+</nav>
 
 <div class="exercicio">
+
+    <h1>0. Jumbotron/breadcrump -
+        <small>
+            <br><a href="https://getbootstrap.com/docs/4.0/components/jumbotron/" target="_black">Documentação Oficial
+                (Jumbotron)</a>
+            <br><a href="http://getbootstrap.com/docs/4.0/components/breadcrumb/" target="_black">Documentação Oficial
+                (Breadcrumb)</a>
+        </small>
+    </h1>
+    <hr>
+
     <h1>1. Tipografia -
         <small>
             <a href="https://getbootstrap.com/docs/4.0/content/typography/" target="_black">Documentação Oficial</a>
@@ -25,6 +45,10 @@
     <hr>
 
     <!-- Espaços -->
+    <div class="mb-0">1</div>
+    <div class="m-4 py-2">2</div>
+    <div class="px-0 pt-2">3</div>
+
 
     <h1 class="mt-5">3. Cores -
         <small>
@@ -34,7 +58,9 @@
     <hr>
 
     <!-- Cores -->
-
+    <div class="my-1 p-2 bg-primary text-light">1</div>
+    <div class="my-1 p-2 bg-danger text-white">2</div>
+    <div class="my-1 p-2 bg-warning text-dark">3</div>
     <h1 class="mt-5">4. Flex -
         <small>
             <a href="https://getbootstrap.com/docs/4.0/utilities/flex/" target="_black">Documentação Oficial</a>
@@ -43,7 +69,12 @@
     <hr>
 
     <!-- Flex -->
-
+    <div class="d-inline-flex mb-2 p-2">I'm an inline flexbox container!</div>
+    <div class="d-flex flex-column-reverse p-2">
+        <div class="align-self-end">1</div>
+        <div class="align-self-center">2</div>
+        <div class="align-self-start">3</div>
+    </div>
     <h1 class="mt-5">5. Imagens -
         <small>
             <a href="https://getbootstrap.com/docs/4.0/content/images/" target="_black">Documentação Oficial</a>
@@ -65,7 +96,7 @@
 
 <style>
     .exercicio div {
-        border: solid 8px #000;
+        border: solid 4px #000;
         font-size: 2rem;
     }
 </style>
