@@ -4,10 +4,10 @@
 </div>
 
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#paginas/bemVindo.html">Home</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Componentes</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#paginas/bemVindo.html">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Componentes</li>
+    </ol>
 </nav>
 
 <h1>1. Botões -
@@ -18,6 +18,46 @@
 <hr>
 
 <!-- Botões -->
+<div>
+    <div class="mb-3">
+        <button class="btn btn-outline-primary">Salvar</button>
+        <button class="button btn btn-outline-danger">Cancelar</button>
+        <button class="button btn btn-outline-success">Finalizar</button>
+        <button class="button btn btn-danger" disabled="disabled">Exluir</button>
+        <button class="btn btn-outline-warning" data-toggle="button">Selcione</button>
+    </div>
+
+
+    <div class="btn-group mb-3">
+        <button class="btn btn-outline-primary active">Esquerda</button>
+        <button class="btn btn-outline-success">Centro</button>
+        <button class="btn btn-outline-warning">Direita</button>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-danger btn-lg dropdown-toggle" data-toggle="dropdown">
+            Comprar!
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnDropdown">
+            <a href="#" class="dropdown-item">Paypal</a>
+            <a href="#" class="dropdown-item">Pagseguro</a>
+        </div>
+    </div>
+    <br>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Ação</a>
+            <a class="dropdown-item" href="#">Outra ação</a>
+            <a class="dropdown-item" href="#">Algo mais aqui</a>
+        </div>
+    </div>
+
+
+</div>
 
 <h1 class="mt-5">2. Progresso -
     <small>
@@ -27,6 +67,25 @@
 <hr>
 
 <!-- Progresso -->
+<div>
+    <div class="progress mb-4">
+        <div class="progress-bar" style="width: 25%;">
+        </div>
+    </div>
+</div>
+
+<div class="progress mb-4">
+    <div class="progress-bar progress-bar-striped bg-success" style="width: 80%;">
+        80%
+    </div>
+</div>
+
+<div class="progress" style="height: 40px">
+    <div class="progress-bar progress-bar-striped" style="width: 15%">15%</div>
+    <div class="progress-bar progress-bar-striped bg-danger" style="width: 30%">30%</div>
+    <div class="progress-bar progress-bar-striped bg-info" style="width: 20%">20%</div>
+    <div class="progress- progress-bar-striped bg-warning" style="width: 25%">25%</div>
+</div>
 
 <h1 class="mt-5">3. Mensagens (Alertas) -
     <small>
@@ -36,6 +95,39 @@
 <hr>
 
 <!-- Alertas -->
+<div>
+    <div>
+        <div class="alert alert-success" style="display:inline-block">
+            Sucessso!
+        </div>
+    </div>
+
+    <div>
+        <div class="alert alert-secondary" style="display:inline-block">
+            <strong>CUIDADO! </strong>Essa operação é perigosa.
+        </div>
+    </div>
+
+    <div class="alert alert-danger" style="display:inline-block">
+        <strong>ERRO! </strong>Ocorreu um erro -
+        <a href="http://www.google.com" target="blanck" class="alet-link">Mais detalhes</a>
+    </div>
+    <br>
+    <div class="alert alert-success" style="display:inline-block">
+        <h4 class="alert-heading">Parabéns!</h4>
+        <p>Processo realizado com sucesso!</p>
+        <hr>
+        <p class="mb-0">Pode ficar orgulhoso.</p>
+    </div>
+</div>
+<div class="alert alert-warning alert-dismissible fade show" role="alert" style="display:inline-block">
+    <strong>ATENÇÃO!</strong>
+    <hr>
+    <p>Esse procedimento pode ser perigoso.</p>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 
 <h1 class="mt-5">4. Paginação -
     <small>
@@ -45,6 +137,31 @@
 <hr>
 
 <!-- Peginação -->
+<div>
+    <nav>
+        <ul class="pagination pagination-danger pagination-sm justify-content-center">
+            <li class="page-item">
+                <a href="#" class="page-link">Anterior</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">1</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">2</a>
+            </li>
+            <li class="page-item active">
+                <a href="#" class="page-link">3</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">4</a>
+            </li>
+            <li class="page-item">
+                <a href="#" class="page-link">Próxima</a>
+            </li>
+
+        </ul>
+    </nav>
+</div>
 
 <h1 class="mt-5">5. Tooltip -
     <small>
@@ -54,6 +171,17 @@
 <hr>
 
 <!-- Tooltip -->
+<div>
+    <div class="alert alert-warning">
+        Precisa chamar um função JS!
+        <strong>E agora?</strong>
+    </div>
+
+    <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Pense antes!">
+        Excluir
+    </button>
+</div>
+
 
 <h1 class="mt-5">6. Slider -
     <small>
@@ -74,5 +202,5 @@
 <!-- Accordion -->
 
 <script>
-    // ...
+    $('[data-toggle="tolltip"]').tolltip()
 </script>
