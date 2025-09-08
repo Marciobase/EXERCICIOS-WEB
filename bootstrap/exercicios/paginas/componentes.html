@@ -45,8 +45,7 @@
     </div>
     <br>
     <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-danger btn-lg dropdown-toggle" type="button" id="btnDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -84,7 +83,7 @@
     <div class="progress-bar progress-bar-striped" style="width: 15%">15%</div>
     <div class="progress-bar progress-bar-striped bg-danger" style="width: 30%">30%</div>
     <div class="progress-bar progress-bar-striped bg-info" style="width: 20%">20%</div>
-    <div class="progress- progress-bar-striped bg-warning" style="width: 25%">25%</div>
+    <div class="progress-bar progress-bar-striped bg-warning" style="width: 25%">25%</div>
 </div>
 
 <h1 class="mt-5">3. Mensagens (Alertas) -
@@ -110,7 +109,7 @@
 
     <div class="alert alert-danger" style="display:inline-block">
         <strong>ERRO! </strong>Ocorreu um erro -
-        <a href="http://www.google.com" target="blanck" class="alet-link">Mais detalhes</a>
+        <a href="http://www.google.com" target="blank" class="alert-link">Mais detalhes</a>
     </div>
     <br>
     <div class="alert alert-success" style="display:inline-block">
@@ -251,5 +250,8 @@
  </div>
 
 <script>
-    $('[data-toggle="tolltip"]').tolltip
+    $(() => {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
 </script>
