@@ -35,11 +35,12 @@ module.exports = {
     ],
     module: {
         rules: [{
-            test: /\.scss$/,
+            test: /\.s?[ac]ss$/,
             use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
+                MiniCssExtractPlugin.loader,
+                // 'style-loader', // Adiciona CSS a DOM injetando a tag <style>
+                'css-loader', // interpreta @import, url()...
+                'sass-loader',
             ]
         }, {
             test: /\.(png|svg|jpg|gif)$/,
